@@ -1,0 +1,19 @@
+CentOS 7 Filesystem Hierarchy:
+
+It is inverted tree structer like branches, then sub branches. The same Hierarchy inherited in Linux/Unix file system
+Every thing is distrubuted, everything is cattered and stored in one particuar location. and it's just like a distributed file system.
+ / ---> root of the file system or top level directory or starting file of the directory. under root, we have multiple sub or child directories which are mentioned below.
+
+
+boot - 
+etc - user database & system configuration files will be saved in this directory 
+proc - process related like dynamic process informantion
+dev - hardware related information
+home - all regular user will be having hoe directory 
+root - 
+var - 
+usr - 
+run - 
+tmp - 
+mnt - 
+opt - 
