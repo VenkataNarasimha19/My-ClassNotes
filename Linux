@@ -1,4 +1,5 @@
 What is Linux: Linux is an Open Source Operating System modelled on Unix, and developed in C language.
+
 Features of Linux: 
   1. Linux is open-source, 
   2. Significantly reduces the monitory cost, 
@@ -8,19 +9,23 @@ Features of Linux:
   6. Can be Customized if you want to change your system’s look
   7. New enhancements happening and updates come frequently
   8. More Secure than other Operating Systems
+
 Where Linux is Used?: Linux is Used at Servers, Supercomputers, Embedded Systems, Android, Gaming and Visual effect Servers, & NASA.
+
 Components of a Linux OS: 
   1. Init Program: The first program, which is responsible for the initialization of the system. Ex: sysvinit, systemd.
   2. Bootloader: A program which loads the operating system when the system is turned on. Ex: GNU Grub, Syslinux. 
   3. Software Libraries: Set of programming code used to develop and design software programs and applications.
   4. Package Management System: A collection of tools for Installation, Deletion, Configuration, and Upgradation of software. Ex: dpkg, RPM.
   5. Other Interface and application: Various applications and interfaces are used for various task performed by user.
+
 Architecture of Linux OS: 
   1. HardWare: Hardware part of architecture includes all the peripheral devices. For Example: CPU, RAM, Hard Disk Drive,etc.
   2  Kernel: The kernel is the Interface between the Applications and the actual process done at the Hardware level.The Tasks performed by the Kernel are Resource Allocation, Security Management, Process management, Device Management, Scheduling, Memory Management.
   3. Shell: The shell is the interface which takes user-command and sends it to the kernel. Shell has got its own programming language and you can combine multiple commands in a single script.  
   4.
 What is Linux Distribution(Distro)?: It is an Operating System having Linux kernel and GNU tools packaged with some more applications. Some of the popular Linux Distros are Ubuntu, Fedora, RedHat, Debian, CentOS, etc. The distro should be chosen based on the requirement of the user. 
+
 Ubuntu: 
 Most Popular Linux Distro
 • Secure and reliable
@@ -28,6 +33,7 @@ Most Popular Linux Distro
 • Frequent releases
 • Easy to use
 • It contains a wide range of software like LibreOffice, Thunderbird, etc. and also, games such as Sudoku and chess.
+
 RedHat Linux:
 • Mostly used for big Servers
 • Has a maximum number of Hardware support
@@ -36,6 +42,19 @@ RedHat Linux:
 • New release in 2-3 years
 • Secure and reliable
 
+Shell Scripting: Shell Scripting is a series of shell commands arranged in a text file to be executed one after the other.
+ 1. Can be created using any normal text editor. 
+ 2. Helps to automate a sequence of task creating and also saves time.
+ 3. Similar to batch file in windows.
+ 4. Compiled like C/CPP program, but are interpreted directly.
+ 5. Each shell script must have executable permission to run the script.
+
+Creating a Shell Script: 
+  1. To get into the root for execution ---- sudo -i
+  2. Create a text file and add the extension of the shell ---- vi script.sh.
+  3. Enter some commands in the scripts to be executed ---- echo “My first Script”, echo $(date).
+  4. Change the permission of the script, give it executable permission and may also give read and execute permission for other users ---- chmod 755 script.sh
+  5. Run the script ---- ./script.sh, bash script.sh 
 
 Practical Uses of Shell Scripting:
   1. Data backup at regular interval of time in the background. 
@@ -44,6 +63,7 @@ Practical Uses of Shell Scripting:
   4. To append each file with a signature, date, etc.
   5. For scheduling tasks to be done at network servers.
   6. Creating new users by providing permissions just by entering username.
+
 User Interface In Linux: User Interface is a visual part of Operating System through which a user interacts with a computer or a software
   1. Command Line Interface give commands in the form of lines of text to the program.
   2. The program which handles it is called a command language interpreter.
