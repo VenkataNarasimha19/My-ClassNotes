@@ -1,3 +1,44 @@
+What is Linux: Linux is an Open Source Operating System modelled on Unix, and developed in C language.
+Features of Linux: 
+  1. Linux is open-source, 
+  2. Significantly reduces the monitory cost, 
+  3.Huge base of developers that freely provide support, 
+  4. It is Reliable as it runs smoothly and no need to reboot it repeatedly, 
+  5. Licensing freedom to re-use and re-publish the code,
+  6. Can be Customized if you want to change your system’s look
+  7. New enhancements happening and updates come frequently
+  8. More Secure than other Operating Systems
+Where Linux is Used?: Linux is Used at Servers, Supercomputers, Embedded Systems, Android, Gaming and Visual effect Servers, & NASA.
+Components of a Linux OS: 
+  1. Init Program: The first program, which is responsible for the initialization of the system. Ex: sysvinit, systemd.
+  2. Bootloader: A program which loads the operating system when the system is turned on. Ex: GNU Grub, Syslinux. 
+  3. Software Libraries: Set of programming code used to develop and design software programs and applications.
+  4. Package Management System: A collection of tools for Installation, Deletion, Configuration, and Upgradation of software. Ex: dpkg, RPM.
+  5. Other Interface and application: Various applications and interfaces are used for various task performed by user.
+Architecture of Linux OS: 
+  1. HardWare: Hardware part of architecture includes all the peripheral devices. For Example: CPU, RAM, Hard Disk Drive,etc.
+  2  Kernel: The kernel is the Interface between the Applications and the actual process done at the Hardware level.The Tasks performed by the Kernel are Resource Allocation, Security Management, Process management, Device Management, Scheduling, Memory Management.
+  3. Shell: The shell is the interface which takes user-command and sends it to the kernel. Shell has got its own programming language and you can combine multiple commands in a single script.  
+  4.
+What is Linux Distribution(Distro)?: It is an Operating System having Linux kernel and GNU tools packaged with some more applications. Some of the popular Linux Distros are Ubuntu, Fedora, RedHat, Debian, CentOS, etc. The distro should be chosen based on the requirement of the user. 
+Ubuntu: 
+Most Popular Linux Distro
+• Secure and reliable
+• Multi-variant releases. Ex –Desktop, Server
+• Frequent releases
+• Easy to use
+• It contains a wide range of software like LibreOffice, Thunderbird, etc. and also, games such as Sudoku and chess.
+RedHat Linux:
+• Mostly used for big Servers
+• Has a maximum number of Hardware support
+• Enterprise edition available with support
+• Version 3.0.3 was one of the first Linux distribution
+• New release in 2-3 years
+• Secure and reliable
+
+
+
+
 CentOS 7 Filesystem Hierarchy:
 
 It is inverted tree structer like branches, then sub branches. The same Hierarchy inherited in Linux/Unix file system
