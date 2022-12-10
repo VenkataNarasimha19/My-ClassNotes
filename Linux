@@ -37,6 +37,21 @@ RedHat Linux:
 • Secure and reliable
 
 
+Practical Uses of Shell Scripting:
+  1. Data backup at regular interval of time in the background. 
+  2. To find out the number of users and their details.
+  3. Find details about various processes and sorting them based on CPU usage, runtime, memory usage, users, etc.
+  4. To append each file with a signature, date, etc.
+  5. For scheduling tasks to be done at network servers.
+  6. Creating new users by providing permissions just by entering username.
+User Interface In Linux: User Interface is a visual part of Operating System through which a user interacts with a computer or a software
+  1. Command Line Interface give commands in the form of lines of text to the program.
+  2. The program which handles it is called a command language interpreter.
+  3. Graphical user interface interacts with users with icons, folders, wallpapers, widgets and visual indicators to make it easier for the user to access the program
+  4. For Linux, desktop environments are KDE, GNOME, CINNAMON, MATE, etc. 
+  
+  
+The file system is a logical arrangement to store and retrieve data
 
 
 CentOS 7 Filesystem Hierarchy:
