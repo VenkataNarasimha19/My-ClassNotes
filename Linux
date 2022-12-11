@@ -105,6 +105,9 @@ In first field, we have 10bits for access permissions.
  Next 3 bits(---) is the Access permission for the group owner.
  Next 3 bits(---) is the Access permission for the others.
  
+Second field for Link count. ---> by default every file will be having one link,  by default for every newly created directory will be having 2 links, 1 is for itself, 2nd one for parent directory.
+The Link count will be changed according to number of sub directories.
+
 File Operations: 
    Create: Allocate space on disk and make an entry.
    Write: Write the data in the file.
@@ -113,15 +116,11 @@ File Operations:
    Move: Move files to a different location.
    
 
-
-
-
 CentOS 7 Filesystem Hierarchy:
 
 It is inverted tree structer like branches, then sub branches. The same Hierarchy inherited in Linux/Unix file system
-Every thing is distrubuted, everything is cattered and stored in one particuar location. and it's just like a distributed file system.
- / ---> root of the file system or top level directory or starting file of the directory. under root, we have multiple sub or child directories which are mentioned below.
-
+Every thing is distrubuted, everything is not cattered and not stored in one particuar location. and it's just like a distributed file system.
+ / ---> root of the file system or top level directory or starting point of file of the directory. under /root & /, we have multiple sub or child directories which are mentioned below.
 
 boot - 
 etc - user database & system configuration files will be saved in this directory 
