@@ -138,4 +138,12 @@ opt - it is Optional. All the Third party Optional package tools, programs & app
 The complete path called as Obsolute path which is started with /
 The In-complete path called as Related path.
 
+Package ManageDifferent Linux distro use:
+   apt - get: Advanced Packaging tool  apt-cache - searching software packaged tool
+different package management systems. For example apt-get : Ubuntu, Debian, etc.    yum : RedHat, Fedora, etc.
+
+rpm: we need to install all the package dependencies first manually.
+
+apt & yum: these can automatically install the package dependecies first then install the packages.
+
 
