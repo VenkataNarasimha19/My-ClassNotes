@@ -71,7 +71,26 @@ User Interface In Linux: User Interface is a visual part of Operating System thr
   4. For Linux, desktop environments are KDE, GNOME, CINNAMON, MATE, etc. 
   
   
-The file system is a logical arrangement to store and retrieve data
+File System: The file system is a logical arrangement to store and retrieve data.
+   1. The file system can be local data storage via a network protocol or virtual files.
+   2. Most of the file systems use hard disks which are made of small fixed size blocks. Each block has an identifier to describe the start and end of the block.
+   3. Depending upon the file system architecture, file fragmentation occurs when some files are in noncontiguous clusters or some file are deleted.
+   4. Each file has a metadata consisting of size, date and time of creation, file type, access permission, owner of a file, etc.
+
+Type of File System:
+   1. Disk File System: It manages data on a permanent storage device. Accessing the data for multiple request can be handled Ex – NTFS, FAT, etc.
+   2. Network File System: It allows a user on a client computer to access the files over a computer network using NFS protocol. Ex – AFS, SMB.
+   3. Special Purpose File System: The system API/device is given a file type representation to use according with Unix OS.
+
+Examples of File System: 
+   FAT: File Allocation Table (FAT) uses indexing for a contiguous area of disk store
+   NTFS: New Technology File System (NTFS) uses advanced data structure to improve performance, reliability and disk space usage.
+   ext4: Fourth Extended File System (ext4) is designed for Linux Kernel. It supports huge individual file size upto TB’s and almost one directory can contain 64,000 sub-directories
+   XFS: It is a journaling file system that uses a B-tree (balance tree) to allocate data as fast as possible. It supports huge individual file size allocation.
+   
+File Attributes:
+
+
 
 
 CentOS 7 Filesystem Hierarchy:
@@ -85,7 +104,7 @@ boot -
 etc - user database & system configuration files will be saved in this directory 
 proc - process related like dynamic process informantion
 dev - hardware related information
-home - all regular user will be having hoe directory 
+home - all regular user will be having home directory 
 root - 
 var - 
 usr - 
@@ -93,3 +112,5 @@ run -
 tmp - 
 mnt - 
 opt - 
+
+
