@@ -88,7 +88,30 @@ Examples of File System:
    ext4: Fourth Extended File System (ext4) is designed for Linux Kernel. It supports huge individual file size upto TB’s and almost one directory can contain 64,000 sub-directories
    XFS: It is a journaling file system that uses a B-tree (balance tree) to allocate data as fast as possible. It supports huge individual file size allocation.
    
-File Attributes:
+File Attributes or Properties:  1) File name,  2) File Type,  3) Permission,  4) File size,  5) File location,  6) File date,  7) File Owner.
+
+In first field, we have 10bits for access permissions.
+(- ---  ---  ---) out of 10 bits, 
+1st(-) bit identify or denotes the file type.
+ - -- regular file
+ d -- directory
+ l -- symbolic link
+ b -- Block special devices (HDD)
+ c -- Character special device  (tty)
+ P -- pipe
+ s -- socket
+ 
+ Next 3 bits(---) is the Access permission for the owner.
+ Next 3 bits(---) is the Access permission for the group owner.
+ Next 3 bits(---) is the Access permission for the others.
+ 
+File Operations: 
+   Create: Allocate space on disk and make an entry.
+   Write: Write the data in the file.
+   Read: Read the data from the file.
+   Delete: Delete the file to free the allocated memory.
+   Move: Move files to a different location.
+   
 
 
 
