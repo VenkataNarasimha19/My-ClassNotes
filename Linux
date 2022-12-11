@@ -122,17 +122,20 @@ It is inverted tree structer like branches, then sub branches. The same Hierarch
 Every thing is distrubuted, everything is not cattered and not stored in one particuar location. and it's just like a distributed file system.
  / ---> root of the file system or top level directory or starting point of file of the directory. under /root & /, we have multiple sub or child directories which are mentioned below.
 
-boot - 
-etc - user database & system configuration files will be saved in this directory 
-proc - process related like dynamic process informantion
-dev - hardware related information
-home - all regular user will be having home directory 
-root - 
-var - 
-usr - 
-run - 
-tmp - 
-mnt - 
-opt - 
+boot - starting of the file and it contains all bootable related files. Like boot loader, image kernel, 
+etc - It contains all the Configuration files. user database, network & system configuration files will be saved in this directory. 
+proc - All the process related inforamtion, like CPU, Processor, dynamic process informantion
+dev - hardware related information lie, block device, terminals.
+home - All regular user will be having home directory. / is the parent directory & home is the sub directory.
+root - super user home directory
+var - variable data will be stored.the data which is not constant & changing day by day. All the logs will be saved
+usr - usr stands for Unixs System Resource. when we are installing the SWs, All the built-in package programs & applications will be located under usr.
+run - All the run time tools, programs will be located under run.
+tmp - All the temporary files will be located under tmp.
+mnt - which contains the mount point for access remote file system & mount point device.
+opt - it is Optional. All the Third party Optional package tools, programs & applications will be located under opt.
+
+The complete path called as Obsolute path which is started with /
+The In-complete path called as Related path.
 
 
