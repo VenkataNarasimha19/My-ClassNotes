@@ -88,7 +88,20 @@ Basic Linux Commands:
   touch  :  Creates a file
   df     :  Shows the available disk space
   du     :  Shows disk space consumed by the directory and files
-  
+  grep   : The command prints the lines matching with the pattern which is passed. Syntax: grep <options> <pattern> <filename>, Ex: grep “hello” file.txt
+  sed    : sed is a stream editor for basic text transformations on an input stream. sed can have one or more command combined together with -e or -f. Example: sed ‘s/hello/world/’ file.txt > output.txt.
+  awk    : It is mostly used for pattern scanning and processing. It is useful to create reports or transform the data files. Syntax: awk ‘program’ <filename>. Example: awk ‘{print}’ file.txt
+  alias  : alias tells Linux to replace one string with another string while executing a command. It is used to provide a short name of the frequently used commands.
+  history: In a shell, “history” command keeps record of all the commands used in the particular tab.
+    
+vim Editor:
+   ▪ vi which stands for “Visual Instrument” is a screen editor
+   ▪ vim is the improved version of vi editor, which is most commonly used in Linux
+   ▪ It is pre-installed with Linux
+   ▪ vi <filename> ---> Open a file/ or create a file if it is not present
+
+2nd Module:
+
 File System: The file system is a logical arrangement to store and retrieve data.
    1. The file system can be local data storage via a network protocol or virtual files.
    2. Most of the file systems use hard disks which are made of small fixed size blocks. Each block has an identifier to describe the start and end of the block.
