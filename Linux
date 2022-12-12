@@ -219,11 +219,16 @@ Regular user Dir  777 - 002 = 775 ---> Default Directory Access permission
 Module 04:
 
 Open system Inter Connection (OSI) Layers: 
-Application: To allow access to network layers. Example – FTP, HTTP, DNS, SNMP, SMTP
-Presentation: To translate, encrypt and compress data. Example: WMV, JPEG
-Session : Establish, manage and terminate session. Example: Session
-Transport : Reliable process to process message delivery and error recovery. Ex – TCP, UDP
-Network : Move packets from source to destination. Ex –IP,Routing, ICMP, ARP.
-Data Link : Organize bits into frame to provide hop-to-hop delivery. Ex: Switching & MAC Address.
-Physical : To transfer bits over an electrical medium. Example: Data cables, cat6.
+Application: To allow access to network layers. Example – FTP, HTTP, DNS, SNMP, SMTP. (Software Layer)
+Presentation: To translate, encrypt and compress data. Example: WMV, JPEG. (Software Layer)
+Session : Establish, manage and terminate session. Example: Session. (Software Layer)
+Transport : It is Hear of OSI. Reliable process to process message delivery and error recovery. Ex – TCP, UDP. --->  Heart of OSI
+Network : Move packets from source to destination. Ex –IP,Routing, ICMP, ARP. (Hardware Layer)
+Data Link : Organize bits into frame to provide hop-to-hop delivery. Ex: Switching & MAC Address. (Hardware Layer)
+Physical : To transfer bits over an electrical medium. Example: Data cables, cat6. (Hardware Layer)
+
+TCP Protocol Services: HTTP, HTTPS, SMTP, POP3, Telnet, SSH
+UDP Protocol Services: DNS, DHCP, TFTP, SNMP, VoIP.
+
+
 
