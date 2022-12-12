@@ -69,7 +69,25 @@ User Interface In Linux: User Interface is a visual part of Operating System thr
   2. The program which handles it is called a command language interpreter.
   3. Graphical user interface interacts with users with icons, folders, wallpapers, widgets and visual indicators to make it easier for the user to access the program
   4. For Linux, desktop environments are KDE, GNOME, CINNAMON, MATE, etc. 
-  
+
+Commands and vim Editor:
+   ---> One needs a terminal (CLI) to execute the command. Multiple commands can be executed sequentially by adding “;” in between them.Syntax: Command <option> <arguments>
+Basic Linux Commands:
+  ls     :  Lists down the content of a directory
+  mkdir  :  Creates a directory
+  mv     :  Moves or renames a file/directory
+  pwd    :  Shows the present working directory
+  rm     :  Removes a file/directory
+  cd     :  Enter a directory
+  whoami :  Tell the current logged-in user
+  clear  :  Clear the screen
+  cat    :  Displays the text of a file
+  tail   :  Displays the last few lines of the file
+  echo   :  Prints a line of text
+  cp     :  Copy a file/directory
+  touch  :  Creates a file
+  df     :  Shows the available disk space
+  du     :  Shows disk space consumed by the directory and files
   
 File System: The file system is a logical arrangement to store and retrieve data.
    1. The file system can be local data storage via a network protocol or virtual files.
