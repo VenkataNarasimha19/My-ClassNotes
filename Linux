@@ -177,3 +177,35 @@ Package ManageDifferent Linux distro use:
    --> apt & yum: these can automatically install the package dependecies first then install the packages.
 
 
+Access Permissions:
+
+read(r)=4
+write(w)=2
+execute(x)=1
+
+Access Levels:
+
+users(u)
+group(g)
+others(o)
+all(a) - ugo
+
+
+Advanced file permissions:
+set user id(s) = 4 --- owners field
+set group id(s) = 2 --- group-owners field
+sticky bit(t) = 4 --- others field
+
+
+Files & Directory Access Permissions:
+
+Super-user(root)  umask=022   & All regular users umask=002
+
+root File 666 - 022 = 644 ---> Default File Access permission
+root Dir 777 - 022 = 755 ---> Default Directory Access permission
+
+
+Regular user file 666 - 002 = 664 ---> Default File Access permission
+Regular user Dir  777 - 002 = 775 ---> Default Directory Access permission
+
+
