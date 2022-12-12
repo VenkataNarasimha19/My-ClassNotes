@@ -216,3 +216,14 @@ Regular user file 666 - 002 = 664 ---> Default File Access permission
 Regular user Dir  777 - 002 = 775 ---> Default Directory Access permission
 
 
+Module 04:
+
+Open system Inter Connection (OSI) Layers: 
+Application: To allow access to network layers. Example – FTP, HTTP, DNS, SNMP, SMTP
+Presentation: To translate, encrypt and compress data. Example: WMV, JPEG
+Session : Establish, manage and terminate session. Example: Session
+Transport : Reliable process to process message delivery and error recovery. Ex – TCP, UDP
+Network : Move packets from source to destination. Ex –IP,Routing, ICMP, ARP.
+Data Link : Organize bits into frame to provide hop-to-hop delivery. Ex: Switching & MAC Address.
+Physical : To transfer bits over an electrical medium. Example: Data cables, cat6.
+
