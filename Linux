@@ -190,6 +190,13 @@ group(g)
 others(o)
 all(a) - ugo
 
+Changing the Mode of permissions: Inorder to Absolute & Relative mode of permissions.
+chmod
+   + add
+   - remove / delete
+   = over wright
+
+
 
 Advanced file permissions:
 set user id(s) = 4 --- owners field
