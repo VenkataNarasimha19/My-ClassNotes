@@ -122,8 +122,8 @@ Examples of File System:
 File Attributes or Properties:  1) File name,  2) File Type,  3) Permission,  4) File size,  5) File location,  6) File date,  7) File Owner.
 
 In first field, we have 10bits for access permissions.
-(- ---  ---  ---) out of 10 bits, 
-1st(-) bit identify or denotes the file type.
+ (- ---  ---  ---) out of 10 bits, 
+ 1st(-) bit identify or denotes the file type.
  - -- regular file
  d -- directory
  l -- symbolic link
@@ -132,6 +132,7 @@ In first field, we have 10bits for access permissions.
  P -- pipe
  s -- socket
  
+ 1st(-) bit identify or denotes the file type.
  Next 3 bits(---) is the Access permission for the owner.
  Next 3 bits(---) is the Access permission for the group owner.
  Next 3 bits(---) is the Access permission for the others.
@@ -147,7 +148,7 @@ File Operations:
    Move: Move files to a different location.
    
 
-CentOS 7 Filesystem Hierarchy:
+Linux File Hierarchy Structure or CentOS 7 Filesystem Hierarchy:
 
 It is inverted tree structer like branches, then sub branches. The same Hierarchy inherited in Linux/Unix file system
 Every thing is distrubuted, everything is not cattered and not stored in one particuar location. and it's just like a distributed file system.
@@ -170,11 +171,9 @@ The complete path called as Obsolute path which is started with /
 The In-complete path called as Related path.
 
 Package ManageDifferent Linux distro use:
-   apt - get: Advanced Packaging tool  apt-cache - searching software packaged tool
-different package management systems. For example apt-get : Ubuntu, Debian, etc.    yum : RedHat, Fedora, etc.
-
-rpm: we need to install all the package dependencies first manually.
-
-apt & yum: these can automatically install the package dependecies first then install the packages.
+   --> apt - get: Advanced Packaging tool  apt-cache - searching software packaged tool
+   --> different package management systems. For example apt-get : Ubuntu, Debian, etc.    yum : RedHat, Fedora, etc.
+   --> rpm: we need to install all the package dependencies first manually.
+   --> apt & yum: these can automatically install the package dependecies first then install the packages.
 
 
