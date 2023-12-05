@@ -1,0 +1,343 @@
+sudo su -
+sudo useradd ansiuser
+sudo passwd ansiuser
+sudo vim /etc/sudoers   ---> under root, update the content as ansiuser ALL=(ALL) NOPASSWD: ALL
+sudo vim /etc/ssh/sshd_config---> PasswordAuthentication yes ---> 
+sudo systemctl restart sshd --->
+
+sudo ssh-keygen -->
+ssh-copy-id -i ansiuser@172.31.5.91   ---> to copy the ssh key to host machine
+ssh 'ansiuser@172.31.5.91' ---> to connect & control the host machine from Control Machine --->
+
+If the ssh connection not established properly, follow the below steps:
+cd root/.ssh ---> ssh key files / authorized_keys id_rsa.pub keys location --->
+cat authorized_keys ---> copy the key and paste the same in Host machine authorized_keys
+cat id_rsa.pub ---> copy the key and paste the same in Host machine id_rsa.pub keys
+
+sudo hostname Ansible Controller
+sudo su -  ---> or  su - ansiuser --->
+
+sudo amazon-linux-extras install epel --->
+sudo yum install ansible -y --->
+
+ansible --version ---->
+
+cd /etc/ansible/ ----> ls ---> we can see the ansible.config  hosts, roles files in this directory
+
+
+vim tomcatplaybook.yml
+
+---
+- hosts: webserver
+  become: true
+  become_user: root
+  tasks:
+  - name: install tomcat
+    yum: name=tomcat state=present
+  - name: start tomcat
+    service: name=tomcat state=started
+  - name: deploy war file
+    get_url:
+     url=https://tomcat.apache.org/tomcat-7.0-doc/appdev/sample/sample.war
+     dest=/usr/share/tomcat/webapps
+  - name: restart tomcat server
+    service: name=tomcat state=restarted
+
+:wq!
+
+http://localhost:8080/sample
+
+ansible-playbook tomcatplaybook.yml --syntax-check ---> To check the syntax of a playbook
+ansible-playbook tomcatplaybook.yml ---> to execute the playbook
+ansible-playbook tomcatplaybook.yml -vvv ---> verbose v for detailed information of ansible execution logs
+
+
+Handlers & notify: will notify when if there is a change and to restart else it won't restart the service.
+
+vim tomcatplaybook.yml
+
+---
+- hosts: webserver
+  become: true
+  become_user: root
+  tasks:
+  - name: install tomcat
+    yum: name=tomcat state=present
+  - name: start tomcat
+    service: name=tomcat state=started
+  - name: deploy war file
+    get_url:
+     url=https://tomcat.apache.org/tomcat-7.0-doc/appdev/sample/sample.war
+     dest=/usr/share/tomcat/webapps
+    notify: restart tomcat server
+  handlers:
+  - name: restart tomcat server
+    service: name=tomcat state=restarted
+
+:wq!
+
+ansible-playbook tomcatplaybook.yml ---> to execute the playbook  ---> we can see, service not restarted because there is no change.
+
+Connect to Ansible host machines and remove the sample war file and execute the playbook again and see the handler concept.
+
+cd /usr/share/tomcat/webapps --->
+ls
+rm -rf sample sample.war ---> To delete the war files. ---> Apply these steps in both host machines
+
+
+ansible-playbook tomcatplaybook.yml ---> to execute the playbook. Now we can see the changes and handlers.
+
+
+Variable: To reusable Ansible playbooks & Modules to execute later whenever required.
+
+Variable is used to store the value.
+
+sudo vim tomcatplaybook2.yml
+---
+- hosts: webserver
+  become: true
+  become_user: root
+  vars:
+   pkg_name: tomcat
+   url_path: https://tomcat.apache.org/tomcat-7.0-doc/appdev/sample/sample.war
+   dest_path: /usr/share/tomcat/webapps
+  tasks:
+  - name: install {{pkg_name}}
+    yum: name={{pkg_name}} state=present
+  - name: start {{pkg_name}}
+    service: name={{pkg_name}} state=started
+  - name: deploy war file
+    get_url:
+     url={{url_path}}
+     dest={{dest_path}}
+    notify: restart tomcat server
+  handlers:
+  - name: restart tomcat server
+    service: name={{pkg_name}} state=restarted
+
+:wq!
+
+ansible-playbook tomcatplaybook.yml ---> to execute the playbook. Now we can see the changes and handlers.
+
+
+Vaiables can be stored in file and can be picked up from separate file.
+
+sudo vim variables.yml
+pkg_name: tomcat
+url_path: https://tomcat.apache.org/tomcat-7.0-doc/appdev/sample/sample.war
+dest_path: /usr/share/tomcat/webapps
+
+:wq!
+
+sudo vim tomcatplaybook3.yml
+---
+- hosts: webserver
+  become: true
+  become_user: root
+  vars_files:
+   - variables.yml
+  tasks:
+  - name: install {{pkg_name}}
+    yum: name={{pkg_name}} state=present
+  - name: start {{pkg_name}}
+    service: name={{pkg_name}} state=started
+  - name: deploy war file
+    get_url:
+     url={{url_path}}
+     dest={{dest_path}}
+    notify: restart tomcat server
+  handlers:
+  - name: restart tomcat server
+    service: name={{pkg_name}} state=restarted
+
+:wq!
+
+ansible-playbook tomcatplaybook.yml
+
+ansible-playbook tomcatplaybook.yml --extra-vars "pkg_name=docker" ---> to execute the docker file & like variables to pass at run time.
+ansible-playbook tomcatplaybook.yml --extra-vars "pkg_name=docker var2=value var3=value" --->
+ 
+
+
+Ansible Roles:
+
+Role is Organizing the Playbooks in Ansible.
+Overtime working with Ansible a user may create hundreds of playbooks, variables, templates, defaults etc. Roles allow users to group this logic into an organized manner making reusability and sharing of Ansible structure easier.
+
+Roles uses directories to structure and group all the playbooks, variables, templates, tasks, handlers, files, and defaults.
+
+
+cd /etc/ansible --->
+
+sudo ansible-galaxy init apache --> to create a role
+
+ls --- cd apache ---> ls --->  we can see the defaults & roles
+
+rm -rf defaults meta README.md templates tests  --> to delete the files
+
+ls ---> 
+
+cd files
+sudo vim index.html
+<h1> This file is coming from Ansible Roles</h1>
+<h1> create by Sonal</h1>
+
+:wq!
+cd ..
+
+cd vars
+ls
+sudo main.yml
+---
+# vars file for apache
+pkg_name: httpd
+dest_path: /var/www/html
+
+:wq!
+
+pwd
+cd ..
+
+ls
+cd tasks
+ls
+sudo vim main.yml
+---
+# tasks file for apache
+
+- name: install {{pkg_name}}
+  yum: name={{pkg_name}} state=present
+- name: start {{pkg_name}}
+  service: name={{pkg_name}} state=started
+- name: deploy html file
+  copy: src=index.html dest={{dest_path}}
+  notify: restart {{pkg_name}}
+
+:wq!
+
+cd ..
+cd handlers
+sudo vim main.yml
+---
+# handlers file for apache
+
+- name: restart httpd
+  service: name=httpd state=restarted
+
+:wq!
+
+cd ..
+ls
+
+sudo yum install tree -y
+
+cd ..
+
+tree --> we can see the tree structure of role
+
+cd .. ---> to come out of roles directory
+
+sudo vim playbookroles.yml
+---
+- hosts: webserver
+  become: true
+  become_user: root
+  roles:
+   - apache
+
+:wq!
+
+ansible-playbook playbookRoles.yml ---> to execute the playbook
+
+
+Jenkins & Ansible Deployment Setup:
+
+sudo amazon-linux-extras install java-openjdk11 -y ----> Install Java
+sudo yum install jenkins -y ----> Intall Jenkins in Ansible Controller Machine
+sudo systemctl start jenkins ---> restart the jenkins service
+
+Take Ansible Control Machine Pubic IP & enter in browser with :8080 port ---> 
+
+cat /var/lib/jenkins/secrets/initialAdminPassword  ---> Enter this command in Control Machie to get password to To Unlock Jenkins ---> 
+
+Manage jenkins --> Plugins--> Ansible--> Install the plugin without restart-->
+
+which ansible --> pwd --->
+
+Manage jenkins --> Configure Global Tools ---> Ansible --> myansible --> /usr/bin --> save
+
+Install the Git: yum install git -y
+
+GitHub Repository: myansible--> dev.inv--> 
+[webservers]
+172.31.15.92 ansible_user=ansiuser
+172.31.15.197 ansible_user=ansiuser
+
+---> Commit the changes in Github Repo
+
+Edit the index.html file & Commit the changes-->
+
+
+Jenkins --> New Item --> Ansible Deployment --->Pipeline-->ok
+PipeLine--> Code
+pipeline{
+    agent any
+    stages{
+       stage('clone the repo'){
+           steps{
+               git branch: 'main', url: 'https://github.com/VenkataNarasimha19/myansible.git'
+           }
+       }
+    }
+}
+
+
+save the job & run as BuildNow---> Build History --> Build Number--> Console output--> Workspace --> we can see all the deployment files & folders in workspace
+
+
+use pipeline syntax generator --> Use Git --> Repo URL --> Branch name as Main branch--> Copy the url & paste this url in above code at clone repo under steps.
+
+
+
+Go back and crate one more stage:
+
+PipeLine--> Code
+pipeline{
+    agent any
+    stages{
+       stage('clone the repo'){
+           steps{
+               git branch: 'main', url: 'https://github.com/VenkataNarasimha19/myansible.git'
+           }
+       }
+       stage('Execute playbook'){
+           steps{
+              ansiblePlaybook credentialsId: 'ansible1', disableHostKeyChecking: true, installation: 'myansible', inventory: 'dev.inv', playbook: 'playbook1', vaultTmpPath: ''
+    }
+}
+
+syntax generator --> ansible playbook: Invoke an ansible playbook --> add the ansiuser credentials--> add ansiuser--> become root user --> disable the host SSH key check--> Generate Pipeline script -->
+
+save the job & run as BuildNow---> Build History --> Build Number--> Console output--> Workspace -->  we can see the deployment using Jenkins & Ansible integration.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
