@@ -1,0 +1,300 @@
+What is Docker? "Build, Ship & Run any Software and where"
+Docker is a tool designed to create, deploy, and run applications with easily by using containers. 
+It allows a developers packaging of an application with all of the requirements such as libraries and other dependencies, ship it all as one package.
+It ensure that your application works seamlessly in any environment be it development test or production.
+
+
+What is Containerization?
+It is the process of packaging the application and all its dependencies to execute them in an efficient and hassle-free way across different environments. Asingle unit of this bundled package is know as a Container.
+
+Container: 
+Running process of docker image in any anvironment, ip address, network, storage, filesystem, application running+dependencies.
+
+Image: Image is collection of binary files/libraries needed to run your applications. Once image an image created, we can't edit it. It is read only file.
+There are 2types of Images. 1) Basic 2) Custome Image.
+1) Basic Image: Images that are given to you by docker team for free. Images of all open source OS, Webserver, app server, DB Server, tools, languages.
+2) Custome Image: Images create by users to deploy their application. All custom images is dependent on basic image.
+
+Container: Container is a Running instance of an image.
+
+
+
+Docker Commands & Practice:
+sudo yum install docker -y  ---> to install docker
+docker --version ---> to know the version of docker
+systemctl start docker  ---> to start the docker service
+systemctl status docker  ---> to know the status of docker service
+
+hostname DockerHost  --->
+sudo su -
+docker images --> to know the list of docker images
+docker pull busybox ---> busybox image will be pulled from dockerhub or docker.io
+
+docker info --> it will show the docker registry  --> 
+docker images --> to know the list of docker images
+docker pull ubuntu:20.04 ---> 
+docker images -->
+
+docker rmi ubuntu:20.04 busybox  --> to delete/remove the docker images from local machine
+docker ps -a ---> to know the docker containers list
+docker run ubuntu --->
+docker images -->
+docker ps -a ---> Now we can see the ubuntu image executed & created the exited container 
+docker run busybox -->
+docker ps -a ---> we can see, containers created and exited
+docker rm -f <container name / container id> ---> to delete containers
+docker rm -f $(docker ps -aq) ---> to delete all the containers forcefully
+
+
+Docker run command options:
+using docker command run os image --> launch a container ---> container status should be up& running. --> container should have unique name.
+
+docker run --name cont1 ubuntu ---> to create a ubuntu container
+docker ps -a -->
+
+Foreground Mode:(-it)  --> Terminal attached mode
+here,  i=interactive, t=terminal
+whenever we execute run docker command with foreground mode, a container will be created and the container will be up&running.
+docker run -it --name cont2 ubuntu ---> container is created and it will be in attched terminal mode.
+ls --->
+cat /etc/os-release
+ps -ef --> we can see the processes running
+apt-get install tree -y --->
+apt-get update --->
+touch myapp.war -->
+ls --->
+
+ctrl pq ---> to come out of the container and container should be in running state
+docker ps -a ---> we can see the container is up&running
+docker attach cont2 ---> to attach the container & in attached mode --->
+exit --> to come out of the container and container should be in stopped or exited state
+
+docker start cont2 ---> to start the container
+docker ps -a --->
+
+Detached Mode:(-d) 
+whenever we run docker command with detached mode, a container will be created & it will be up&running and user will not be interacted/attached to the terminal of the container.
+
+docker run -d --name cont3 httpd --->
+docker ps -a -->
+
+How can we access application deployed on the container? ---> we can do it using port forwarding
+port mapping --> port forwarding
+This is applicable only to images of web or DB types. This is not application for OS Images. Port forwarding is represented using the flag -p.
+
+In this user will take any port on the host machine and map it to the container pot. Port mapping is done when creating the container. if the container is already created, then port mapping can not be done.
+
+docker run --name web -d httpd
+docker ps -a
+docker run -d -p 8989:80 --name myweb httpd
+
+docker ps -a
+
+docker run -d -P --name myweb2 nginx  --> container created and port assigned automatically
+
+docker ps -a
+docker exec -it myweb bash  ---> to execute and attach to container. now we are in container terminal
+ls -->
+cd htdocs -->
+ls -->
+cat index.html -->
+echo "Learning docker from Sonal Class" --->
+echo "Learning docker from Sonal Class13" --->
+exit --> to comeout of the container --->
+
+docker rm -f $(docker ps -aq) ---> to delete all the containers
+docker ps -a --->
+
+Clone the E-Commerce Repository from GitHub where the repo having more related codes.
+git clone https://github.com/Sonal0409/ecomm.git
+ls -->
+pwd --->
+
+
+
+Volume mapping --> copying files or deploying application on container
+Volume is a concept using which we an copy files from docker host to containers directory.
+syntax: -v /srcdir/pathHost:/destdir/container
+
+docker run --name myapp -d -P -v /root/ecomm:/usr/local/apache2/htdocs httpd 
+docker ps -a
+
+make some chages in github repo ecomm, index.html file and re run the container.
+
+git pull origin master ---> pull the changes to local machine from github.
+
+if you re-fresh the web browser, you can see the changes what you did automatically without restarting the services and containers. this is happened because of volumes.
+
+DockerFile:
+Dockerfile is a simple text file. always it would be Dockerfile. It is very easy to write. we just give argument instruction that docker has to execute. In docker, we build the docker file to get an image. Edit the dockerfile & re-build the image. Dockerfile contains the set of keywords, variables and values. Keywords can not be changed. 
+
+FROM: Defines the name of the base image over which we will do the customization.
+RUN: we use RUN command if we want to execute/install/run any linux command on the container. This keyword can be repeated 
+COPY: IF there are files on the host machine which needs to be copied on the containers
+ADD: if there are zip/tar files on the host which needs to be copied on the containers
+ENV: Define environment vaiables.
+CMD: Upon launching the container if we have a command to be executed, we can use CMD keyword. it can be replaced by any new command paased by admin at run time.
+ENTRYPOINT: Upon Launching container if we have a command to be executed, this command will not be replaced by new command passed by admin at run time. the new commandd will get appended to existing Entrypoint command.
+EXPOSE: Define the container port number.
+WORKDIR: Create a directory on the container and execute commands in the directory.
+LABEL: It is a key & value pair.
+VOLUME: Defie the volume/directory name where data can copied to container and container can copy data on hostmachine.
+
+
+
+mkdir dockerfiles
+cd mydockerfiles
+ls
+sudo vim file1---> This file is from host machine of Sonal  ---> :wq!
+vim dockerdile
+FROM ubuntu
+ENV pkg_name1 git
+ENV pkg_name2 tree
+RUN apt-get update
+RUN apt-get install ${pkg_name1} -y  ---> run command can be used to run and install the multiple applications ina docker file
+RUN apt-get install ${pkg_name2} -y
+COPY file1 /tmp
+
+:wq!
+
+docker build -t myimage:01 . --->
+docker images -->
+docker run -it myimage:01 --> running the container & attach the terminal
+ls -->
+cd tmp -->
+cd -->
+ls -->
+cat file1
+cat /etc/os-release --> we can see the ubuntu os or not.
+git --version -->
+tree --version -->
+
+ctrl pq --> to comeout of the container
+docker images -->
+cat dockerfile -->
+
+docker system prune --all --->
+docker run -itd busybox -->
+docker ps -a -->
+
+docker run -itd busybox sleep 3000 --> 
+docker ps -a -->
+
+docker rm -f $(docker ps -aq) -->
+
+docker run -d nginx -->
+docker ps -a -->
+docker run -d nginx sleep 3000 ---> to pass the command at run time
+docker ps -a -->
+
+vim dockerdile
+FROM ubuntu
+RUN apt-get update
+RUN apt-get install nginx -y
+COPY index.html /var/www/html/
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+
+:wq!
+
+docker build -t mynginximage .
+docker images
+docker run -d --name myapp mynginximage
+docker ps -a
+
+docker rm -f $(docker ps -aq) --->
+docker run -d --name myapp -P mynginximage
+docker ps -a -->
+
+
+CICD PipeLine using Jenkins, Ansible & Docker:
+In the Docker host and install jenkins. and Jenkins should be up & running
+Create a pipeline job & job should be having following steps
+> Stage 1: Clone the source code repository in the jenkins workspace
+> Stage 2: Build/package the code, .war file will in the jenkins/workspace/target folder
+           /var/lib/jenkins/workspace/CICDPipeline/target/addressbook.war
+> Stage 3: copy the .war file which is in target folder into the current workspace 
+> Stage 4: Build the dockerfile into an Image(dockerfile is present in the workspace) 
+> Stage 5: Run the image to create a container and deploy the application
+
+yum install git -y --->
+yum install jenkins -y --->
+sudo systemctl start jenkins --->
+Take the hostmachine public ip address & enter in browser with port number 8080 and get the password and install the suggested plugins and login into jenkins.
+
+Manage jenkins --> Tools --> maven -- mymaven --> 
+New Item --> CICD PipeLine ---> Pipeline Project ---> Configure --> Pipeline --> write the script--->
+pipeline{
+   tools{
+     maven 'mymaven'
+}
+agent any
+stages{
+stage('Clone the Repo'){
+steps{
+git 'https://github.com/Sonal0409/DevOpsCodeDemo.git'
+}
+stage('package the code'){
+steps{
+ sh 'mvn package'
+}
+}
+}
+}
+
+save & BuildNow ---> We can see it is compiling, testing & Packaging the code.
+
+Before executing the pipeline give jenkins permission to run docker commands in Linux or Ansible Controller Machine.
+chmod 777 /var/run/docker.sock
+
+pipeline{
+   tools{
+     maven 'mymaven'
+}
+agent any
+stages{
+stage('Clone the Repo'){
+steps{
+git 'https://github.com/Sonal0409/DevOpsCodeDemo.git'
+}
+stage('package the code'){
+steps{
+ sh 'mvn package'
+}
+}
+stage('copy the war file to current directory'){
+steps{
+ sh 'cp /var/lib/jenkins/workspace/CICDPipeline/target/addressbook.war .'
+}
+}
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
