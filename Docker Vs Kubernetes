@@ -1,0 +1,8 @@
+Docker Vs Kubernetes. What is the Difference?
+Docker is the containerization flatform tool that packages your application code, its dependencies and libraries into something known as containers. these containers can run on any flatform or operating system that supports docker. 
+
+For Full fledged application, you will be having, multiple containers for various components like frontend, backend, databases, monitoring, logging containers and so much more.  
+
+Managing These containers can have challenging tasks and you will require,container orchestration tool. such as Kubernetes.
+
+Kubernetes is a container orchestration tool that manages multiple containers. Kubernetes helps with tasks like scaling containers up and down ensuring high availability, distributing workloads and making sure, your application deployment going smoothly all the time.
