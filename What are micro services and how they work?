@@ -1,0 +1,4 @@
+What are micro services and how they work?
+micro services are system designed architecture wherel a large application is broken down into smaller and independent services. each service has it own functions and operates as a standalone entity, and these services just communicate to each other through well defined APIs or message queues. 
+
+Using Micro services architecture, you can work on individual services without effecting the entire application making easier to deploy updates or to scale services independently.
