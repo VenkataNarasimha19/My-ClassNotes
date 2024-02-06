@@ -1,0 +1,9 @@
+Nasi_CloudChamp:
+
+what do devops engineers actually do?
+DevOps Engineers simplify the software development and deployment by automating tasks through different practices like CICD using Git or GitHub and Jenkins. 
+Creating and managing infrastructure programatically using Terraform or Ansible. 
+Monitoring systems or applications through prometheus, grafana or other similar tools. 
+Hosting applications on Cloud or On-premises and many other practices to ensure reliability, security, and performance of a software applications.
+
+In Short, the role of devops engineer is to deploy, troubleshoot, and make sure your applications or systems ae up and running or working fine.
