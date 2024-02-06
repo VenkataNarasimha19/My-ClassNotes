@@ -1,0 +1,23 @@
+Learn Shell/Bash Scripting:
+
+
+echo $0 ---> to check & know the shell type
+
+nano add.sh ----> write below program
+
+#!/bin/bash
+echo "Enter 2 numbers: "
+read num1
+read num2
+echo "The sum is : $((num1 + num2))"
+  
+ctrl + s and ctrl + x ---> to save and exit from nano editor.
+
+cat add.sh ---> to see the content in the file.
+
+ls -al ---> to see the list of files with file permissions.
+
+chmod u+x add.sh ---> to change the file permissions. (Given execute permissions to user)
+
+./add.sh ---> to execute the script.
+
