@@ -7,3 +7,29 @@ Monitoring systems or applications through prometheus, grafana or other similar 
 Hosting applications on Cloud or On-premises and many other practices to ensure reliability, security, and performance of a software applications.
 
 In Short, the role of devops engineer is to deploy, troubleshoot, and make sure your applications or systems ae up and running or working fine.
+
+
+Day to Day Activities:
+
+DevOps engineer or cloud engineer start their day by monitoring the pipelines, infrastucture, if there was any deployment overnight, stability of the infrastructure and services they providing to the organization. after that they attend the standup meetings which defines the priority for the day, based on how the infrasturcture is stability is what actions they have to perform.
+
+
+Once Reached Office, 
+Need to check new emails, which i received or missed any. 
+Then i go to Microsoft Teams and check, there is any messages that i have missed.
+after check above two things i go to JIRA & ServiceNow for tickets and check are there any new tickets received.
+
+Daily standup meeting -- to know the team currently working on
+infrastructure Monitor & Management: Check the infrastructure is up and running using Grafana and will look into the issue and will fix it.
+
+CICD: Basically, we create a CICD pipeline evryday or modify and update the existing pipeline
+ 
+Configuration Management using Ansible for any updates or changes if required as per request.
+Infrastructure as Code we use Terraform for provisioning the infrastructure or resouces as per requirement
+Monitoring & Logging on daily basis and we use Prometheus Grafana for Monitoring.
+
+Incident & Managing tool Service or JIRA: Engage the ticket and resolve them with in the time frame.
+
+Confluence: Make a document and post in Conflueence page for reference
+
+
