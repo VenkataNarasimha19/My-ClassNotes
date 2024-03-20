@@ -1,22 +1,24 @@
-What is Docker? "Build, Ship & Run any Software and where"
-Docker is a tool designed to create, deploy, and run applications with easily by using containers. 
-It allows a developers packaging of an application with all of the requirements such as libraries and other dependencies, ship it all as one package.
+What is Docker?  ----> "Build, Ship & Run any Software and any Where"
+
+Docker is a tool, to create, run & deploy the applications easily by using containers. a Container is a package of code, libraries and dependencies are required for an application to run. 
+
+Docker makes it very easy to create, deploy and run applications in the form of containers. Using Docker Containers, you can run your applications on-premises, local-hosts, on cloud and any where you want.
+
+This means, using docker, the application will run the same way, no matter where it is deployed. so the problem of it runs on my machine is solved.
+
 It ensure that your application works seamlessly in any environment be it development test or production.
 
 
 What is Containerization?
 It is the process of packaging the application and all its dependencies to execute them in an efficient and hassle-free way across different environments. Asingle unit of this bundled package is know as a Container.
 
-Container: 
-Running process of docker image in any anvironment, ip address, network, storage, filesystem, application running+dependencies.
+Container: Container is a Running instance of an image or Running process of docker image in any anvironment, ip address, network, storage, filesystem, application running+dependencies.
 
-Image: Image is collection of binary files/libraries needed to run your applications. Once image an image created, we can't edit it. It is read only file.
+Docker Image: Image is collection of binary files/libraries needed to run your applications. Once image an image created, we can't edit it. It is read only file.
+
 There are 2types of Images. 1) Basic 2) Custome Image.
 1) Basic Image: Images that are given to you by docker team for free. Images of all open source OS, Webserver, app server, DB Server, tools, languages.
 2) Custome Image: Images create by users to deploy their application. All custom images is dependent on basic image.
-
-Container: Container is a Running instance of an image.
-
 
 
 Docker Commands & Practice:
