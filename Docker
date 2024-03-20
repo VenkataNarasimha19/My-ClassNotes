@@ -10,7 +10,9 @@ It ensure that your application works seamlessly in any environment be it develo
 
 
 What is Containerization?
-It is the process of packaging the application and all its dependencies to execute them in an efficient and hassle-free way across different environments. Asingle unit of this bundled package is know as a Container.
+It is the process of packaging the application and all its dependencies to execute them in an efficient and hassle-free way across different environments. A single unit of this bundled package is know as a Container.
+Containerization is the lightweight form of virtualization that allows you to encapsulate an application and its dependencies into a self-contained unit called a container.
+
 
 Container: Container is a Running instance of an image or Running process of docker image in any anvironment, ip address, network, storage, filesystem, application running+dependencies.
 
