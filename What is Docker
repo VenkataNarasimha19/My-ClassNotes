@@ -1,5 +1,0 @@
-Docker is a tool, to create, run & deploy applications in containers. a Container is a package of code, libraries and dependencies are required for an application to run. 
-
-Docker makes it very easy to create, deploy and run applications in the form of containers. Using Docker Containers, you can run your applications on-premises, local-hosts, on cloud and any where you want.
-
-this means, using docker, the application will run the same way, no matter where it is deployed. so the problem of it runs on my machine is solved.
